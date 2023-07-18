@@ -1,4 +1,4 @@
-package com.rtc.chat;
+package com.rtc.message;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
