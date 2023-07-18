@@ -1,13 +1,13 @@
-package com.rtc.chat;
+package com.rtc.message;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ChatServiceApplication {
+public class MessageServiceApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(ChatServiceApplication.class, args);
+    SpringApplication.run(MessageServiceApplication.class, args);
   }
 
 }

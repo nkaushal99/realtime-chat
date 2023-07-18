@@ -58,7 +58,7 @@
   </build>
 
   <modules>
-    <module>chat-service</module>
+    <module>message-service</module>
     <module>common</module>
     <module>user-service</module>
   </modules>
