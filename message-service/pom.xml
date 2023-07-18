@@ -10,7 +10,7 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>chat-service</artifactId>
+  <artifactId>message-service</artifactId>
   <name>chat-service</name>
   <description>chat-service</description>
 
