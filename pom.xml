@@ -59,7 +59,6 @@
 
   <modules>
     <module>message-service</module>
-    <module>common</module>
     <module>user-service</module>
   </modules>
 

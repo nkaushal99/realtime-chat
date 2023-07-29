@@ -1,14 +1,12 @@
-package com.rtc.message.entity;
+package com.rtc.user.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.util.List;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,7 +20,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Message implements Serializable {
+public class User implements Serializable {
 
   @Serial
   private static final long serialVersionUID = 1L;
@@ -30,21 +28,16 @@ public class Message implements Serializable {
   @Id
   private UUID id;
 
-  @Temporal(TemporalType.TIMESTAMP)
-  private ZonedDateTime timestamp;
+  private String email;
 
-  private String text;
+  private Boolean isOnline;
 
-  private UUID parentId;
-
-  private UUID senderParticipantId;
-
-  private UUID receiverRoomId;
+  @OneToMany
+  private List<Participant> participants;
 
   @PrePersist
   private void prePersist() {
     this.id = UUID.randomUUID();
-    this.timestamp = ZonedDateTime.now(ZoneId.of("UTC"));
   }
 
 }
