@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.stereotype.Component;
-import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.messaging.SessionConnectedEvent;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 import org.springframework.web.socket.messaging.SessionSubscribeEvent;
@@ -17,12 +16,14 @@ import org.springframework.web.socket.messaging.SessionSubscribeEvent;
 @Slf4j
 public class WebSocketEventListener {
 
-  private final SessionRepository<String, WebSocketSession> sessionRepository;
+  private final SessionRepository<String, String> sessionRepository;
 
   @EventListener
   public void handleSessionConnect(SessionConnectedEvent event) {
     log.info("Session connected event");
     StompHeaderAccessor accessor = StompHeaderAccessor.wrap(event.getMessage());
+    // TODO save key as userId instead of sessionId
+    sessionRepository.save(accessor.getSessionId(), accessor.getSessionId());
   }
 
   @EventListener
@@ -31,6 +32,7 @@ public class WebSocketEventListener {
     StompHeaderAccessor accessor = StompHeaderAccessor.wrap(event.getMessage());
     Objects.requireNonNull(accessor.getSessionAttributes())
         .forEach((k, v) -> System.out.println(k + v));
+    sessionRepository.delete(accessor.getSessionId());
   }
 
   @EventListener

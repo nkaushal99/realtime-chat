@@ -15,18 +15,18 @@ public class ActiveSessionInMemoryRepository<K, V> implements SessionRepository<
   }
 
   @Override
-  public V findById(K sessionId) {
-    return activeSessions.get(sessionId);
+  public V findById(K userId) {
+    return activeSessions.get(userId);
   }
 
   @Override
-  public void save(K sessionId, V session) {
-    activeSessions.put(sessionId, session);
+  public void save(K userId, V sessionId) {
+    activeSessions.put(userId, sessionId);
   }
 
   @Override
-  public V delete(K sessionId) {
-    return activeSessions.remove(sessionId);
+  public void delete(K userId) {
+    activeSessions.remove(userId);
   }
 
 }

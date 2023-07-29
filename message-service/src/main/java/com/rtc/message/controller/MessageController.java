@@ -1,6 +1,6 @@
 package com.rtc.message.controller;
 
-import com.rtc.message.entity.Message;
+import com.rtc.message.dto.MessageDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -14,7 +14,8 @@ public class MessageController {
 
   @MessageMapping("/chat/{roomId}")
   @SendTo("/topic/{roomId}")
-  public Message sendPvtMessage(Message message, @DestinationVariable String roomId) {
+  public MessageDTO sendMessage(MessageDTO message, @DestinationVariable String roomId) {
+    log.info("Message received for roomId: {}", roomId);
     return message;
   }
 

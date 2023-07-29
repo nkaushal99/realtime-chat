@@ -10,6 +10,6 @@ public interface RtcRepository<K, V> {
 
   void save(K key, V value);
 
-  V delete(K key);
+  void delete(K key);
 
 }
