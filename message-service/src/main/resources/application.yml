@@ -1,12 +1,15 @@
+server.port: 8000
+
 spring:
   application.name: message-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/messages
+    url: jdbc:postgresql://localhost:5432/rtc?currentSchema=rtc-messages
     username: postgres
     password: postgres
 
   jpa:
+    open-in-view: false
     hibernate:
       ddl-auto: none
     properties:

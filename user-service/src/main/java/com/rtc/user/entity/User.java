@@ -30,8 +30,6 @@ public class User implements Serializable {
 
   private String email;
 
-  private Boolean isOnline;
-
   @OneToMany
   private List<Participant> participants;
 
