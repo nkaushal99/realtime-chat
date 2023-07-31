@@ -9,7 +9,7 @@ function sendMessage() {
 }
 
 function connect() {
-  let socket = new SockJS("http://localhost:8080/rtc")
+  let socket = new SockJS("http://localhost:8000/rtc")
   stompClient = Stomp.over(socket)
   // TODO userId input from user
   let connectHeaders = {

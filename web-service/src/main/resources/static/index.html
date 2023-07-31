@@ -8,117 +8,71 @@
 
   <title>Chat Room </title>
 
-<!--  <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>-->
-<!--  <link rel="stylesheet" href="/style.css">-->
+  <link href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="/css/style.css">
 
-  <script src="sockjs.js"></script>
-  <script src="sockjs.min.js"></script>
-  <script src="stomp.min.js"></script>
-  <script src="jquery.js"></script>
-  <script src="script.js"></script>
+  <script src="/webjars/sockjs-client/1.5.1/sockjs.js"></script>
+  <script src="/webjars/sockjs-client/1.5.1/sockjs.min.js"></script>
+  <script src="/webjars/stomp-websocket/2.3.4/stomp.min.js"></script>
+  <script src="/webjars/jquery/3.5.1/jquery.js"></script>
+  <script src="/js/script.js"></script>
 </head>
-<body class="bg-dark " >
 
+<body class="bg-dark ">
 <div id="name-from" class="bg-primary d-flex align-items-center">
-
   <div class="container-fluid">
-
     <div class="row">
-
       <div class="col-md-4 offset-md-4">
-
-
         <div class="input-group">
-
           <input type="text"
                  placeholder="Enter your name"
                  id="name-value"
                  autofocus
                  class="form-control"
           >
-
           <div class="input-group-append">
-
             <button class="btn btn-dark" id="login">Enter</button>
-
           </div>
-
-
-
         </div>
-
-
-
       </div>
-
     </div>
-
   </div>
-
 </div>
 
 <div id="chat-room" class="d-none">
-
-
   <div class="container-fluid">
-
     <div class="row">
-
-
       <div class="col-md-6 offset-md-3">
-
-
         <div class="card mt-3">
+
           <div class="card-header">
-
             <h3 id="name-title"></h3>
-
           </div>
+
           <div class="card-body">
-
             <div class="input-group">
-
               <input type="text"
                      placeholder="Enter your message "
                      id="message-value"
                      autofocus
                      class="form-control"
               >
-
               <div class="input-group-append">
-
                 <button class="btn btn-dark" id="send-btn">Send</button>
                 <button class="btn btn-dark" id="logout">Logout</button>
-
               </div>
-
-
-
             </div>
-
 
             <div class="table-responsive mt-3">
-
               <table id="message-container-table">
-
-
-
               </table>
-
             </div>
-
 
           </div>
         </div>
-
       </div>
     </div>
-
   </div>
-
-
 </div>
-
-
 </body>
 </html>

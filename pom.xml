@@ -60,6 +60,7 @@
   <modules>
     <module>message-service</module>
     <module>user-service</module>
+    <module>web-service</module>
   </modules>
 
 </project>
