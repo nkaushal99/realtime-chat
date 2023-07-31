@@ -11,7 +11,11 @@ function sendMessage() {
 function connect() {
   let socket = new SockJS("http://localhost:8080/rtc")
   stompClient = Stomp.over(socket)
-  stompClient.connect({}, function (frame) {
+  // TODO userId input from user
+  let connectHeaders = {
+    userId: '8b17d41b-833f-4635-b72f-7ebb236f9d6d'
+  }
+  stompClient.connect(connectHeaders, function (frame) {
     console.log("Connected : " + frame)
     $("#name-from").addClass('d-none')
     $("#chat-room").removeClass('d-none')
